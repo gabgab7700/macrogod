@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import MacroEditor from './MacroEditor';
 import TagsPage from './TagsPage';
 
@@ -103,8 +103,12 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
 };
 
 const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLanguage, tags }) => {
-  const [draftMacros, setDraftMacros] = useState([...existingMacros.filter(macro => macro.language === globalLanguage)]);
+  const [draftMacros, setDraftMacros] = useState([]);
   const [selectedMacroId, setSelectedMacroId] = useState(null);
+
+  useEffect(() => {
+    setDraftMacros(existingMacros.filter(macro => macro.language === globalLanguage));
+  }, [existingMacros, globalLanguage]);
 
   return (
     <div>

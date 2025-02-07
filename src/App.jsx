@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import MacroList from './components/MacroList';
 import MacroEditor from './components/MacroEditor';
 import SearchBar from './components/SearchBar';
@@ -102,15 +102,15 @@ const App = () => {
     setTagFilter(e.target.value);
   };
 
-  const handleImportSettings = (importedSettings) => {
+  const handleImportSettings = useCallback((importedSettings) => {
     setMacros(importedSettings.macros || []);
     setTags(importedSettings.tags || []);
-  };
+  }, []);
 
   return (
     <div className="container mx-auto p-6 rounded shadow-md bg-secondary text-neutral">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-semibold">MM BOSS</h1>
+        <h1 className="text-3xl font-semibold">Macro God</h1>
 
         <div className="flex items-center">
           <span className="mr-2">EN</span>
