@@ -51,7 +51,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
 
   return (
     <div className="w-full md:w-2/3 pl-4 text-neutral">
-      <h2 className="text-xl font-semibold mb-3">Macro Editor</h2>
+      <h2 className="text-xl font-semibold mb-3">Macros</h2>
       <div>
         <label className="block text-neutral text-sm font-bold mb-2">Title:</label>
         <input
@@ -86,7 +86,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
         <select
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4 bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
           value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+          onChange={handleLanguageChange}
         >
           <option value="English">English</option>
           <option value="Malay">Malay</option>
