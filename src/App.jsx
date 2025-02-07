@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MacroList from './components/MacroList';
+import MacroEditor from './components/MacroEditor';
 import SearchBar from './components/SearchBar';
 import SettingsPage from './components/SettingsPage';
 

@@ -11,20 +11,19 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
       tags: tags,
     };
     const json = JSON.stringify(settings);
-    const blob = new Blob([ [json] ], { type: 'application/json' });
+    const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
 
-    // Programmatically trigger download
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.download = 'mmboss_settings.json';
-    downloadLink.setAttribute('download', 'mmboss_settings.json');
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+    // Create a temporary link element and trigger the download
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'mmboss_settings.json'; // Set the filename for the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
+    // Clean up the URL object
     URL.revokeObjectURL(url);
-
   }, [existingMacros, tags]);
 
   const handleImportSettings = useCallback((event) => {
@@ -104,7 +103,7 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
 };
 
 const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLanguage, tags }) => {
-  const [draftMacros, setDraftMacros] = useState([...existingMacros]);
+  const [draftMacros, setDraftMacros] = useState([...existingMacros.filter(macro => macro.language === globalLanguage)]);
   const [selectedMacroId, setSelectedMacroId] = useState(null);
 
   return (
