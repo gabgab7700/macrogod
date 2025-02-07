@@ -126,7 +126,7 @@ const App = () => {
         </div>
 
         <button
-          className="bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
+          className="bg-dark text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
           onClick={handleSettingsToggle}
         >
           {isSettingsOpen ? 'Back to Macros' : 'Settings'}
@@ -151,19 +151,19 @@ const App = () => {
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <div className="mb-4">
             <button
-              className={`bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded mr-2 ${macroTypeFilter === 'All' ? 'bg-primary' : ''}`}
+              className={`bg-dark text-neutral font-bold py-2 px-4 rounded mr-2 ${macroTypeFilter === 'All' ? 'bg-primary' : ''}`}
               onClick={() => handleTypeFilterChange('All')}
             >
               All
             </button>
             <button
-              className={`bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded mr-2 ${macroTypeFilter === 'Email' ? 'bg-primary' : ''}`}
+              className={`bg-dark text-neutral font-bold py-2 px-4 rounded mr-2 ${macroTypeFilter === 'Email' ? 'bg-primary' : ''}`}
               onClick={() => handleTypeFilterChange('Email')}
             >
               Email
             </button>
             <button
-              className={`bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded ${macroTypeFilter === 'Chat' ? 'bg-primary' : ''}`}
+              className={`bg-dark text-neutral font-bold py-2 px-4 rounded ${macroTypeFilter === 'Chat' ? 'bg-primary' : ''}`}
               onClick={() => handleTypeFilterChange('Chat')}
             >
               Chat
@@ -171,7 +171,7 @@ const App = () => {
           </div>
 
           <div className="mb-4">
-            <label className="text-neutral mr-2">Filter by Tag:</label>
+            <label className="text-textSecondary mr-2">Filter by Tag:</label>
             <select
               className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
               value={tagFilter}
@@ -192,7 +192,7 @@ const App = () => {
               tags={tags}
             />
             {selectedMacro && (
-              <div className="w-full md:w-2/3 pl-4 text-neutral">
+              <div className="w-full md:w-2/3 pl-4 text-textPrimary">
                 <h2 className="text-xl font-semibold mb-3">Macro Content</h2>
                 <div className="whitespace-pre-line">{selectedMacro.content}</div>
               </div>

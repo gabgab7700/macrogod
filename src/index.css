@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+
 /* Basic CSS Reset */
 *,
 *::before,
@@ -12,9 +14,9 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #222831; /* Set the background color to dark */
-  color: #EEEEEE; /* Set the default text color to light */
+  font-family: 'Exo 2', sans-serif;
+  background-color: #111827; /* Set the background color to dark */
+  color: #d1d5db; /* Set the default text color to light */
   background-image: url('https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/b31238ba-331d-4496-adcd-7e8277bdcffa/original=true,quality=90/56087529.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,6 +24,7 @@ body {
   position: relative; /* Required for pseudo-element positioning */
   min-height: 100vh; /* Ensure body takes up full viewport height */
   background-position: center 20%; /* Move the background image higher */
+  overflow: hidden; /* Hide scrollbars */
 }
 
 body::before {
@@ -33,6 +36,16 @@ body::before {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% transparency */
   z-index: -1; /* Place behind the content */
+}
+
+/* Shimmer Animation */
+.shimmer {
+  background: linear-gradient(to right, #222, #444, #222);
+  background-size: 200% 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
 }
 
 /* The switch - the box around the slider */
@@ -76,11 +89,11 @@ body::before {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #a855f7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #a855f7;
 }
 
 input:checked + .slider:before {

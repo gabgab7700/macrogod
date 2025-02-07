@@ -17,7 +17,7 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
     // Create a temporary link element and trigger the download
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'mmboss_settings.json'; // Set the filename for the download
+    link.download = 'macro_god_settings.json'; // Set the filename for the download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -44,18 +44,18 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
   }, [onImportSettings]);
 
   return (
-    <div className="p-4 text-neutral">
+    <div className="p-4 text-textPrimary">
       <h2 className="text-xl font-semibold mb-4">Settings</h2>
 
-      <div className="flex border-b border-gray-700 mb-4">
+      <div className="flex border-b border-gray-300 mb-4">
         <button
-          className={`${activeTab === 'macros' ? 'bg-gray-700 text-neutral' : 'text-gray-400'} py-2 px-4 rounded-t-lg`}
+          className={`${activeTab === 'macros' ? 'bg-primary text-neutral' : 'text-textSecondary transition duration-300'} py-2 px-4 rounded-t-lg`}
           onClick={() => setActiveTab('macros')}
         >
           Macros
         </button>
         <button
-          className={`${activeTab === 'tags' ? 'bg-gray-700 text-neutral' : 'text-gray-400'} py-2 px-4 rounded-t-lg`}
+          className={`${activeTab === 'tags' ? 'bg-primary text-neutral' : 'text-textSecondary transition duration-300'} py-2 px-4 rounded-t-lg`}
           onClick={() => setActiveTab('tags')}
         >
           Tags
@@ -64,17 +64,17 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
 
       <div className="mb-4">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
+          className="bg-blue-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
           onClick={handleExportSettings}
         >
           Export Settings
         </button>
-        <label className="bg-green-500 hover:bg-green-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 cursor-pointer">
+        <label className="bg-green-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 cursor-pointer">
           Import Settings
           <input type="file" className="hidden" accept=".json" onChange={handleImportSettings} />
         </label>
         <button
-          className="bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
+          className="bg-dark text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
           onClick={onCancel}
         >
           Back
@@ -103,7 +103,8 @@ const SettingsPage = ({ existingMacros, setMacros, onCancel, globalLanguage, tag
 };
 
 const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLanguage, tags }) => {
-  const [draftMacros, setDraftMacros] = useState([]);
+  const initialDraftMacros = existingMacros.filter(macro => macro.language === globalLanguage);
+  const [draftMacros, setDraftMacros] = useState(initialDraftMacros);
   const [selectedMacroId, setSelectedMacroId] = useState(null);
 
   useEffect(() => {
@@ -114,7 +115,7 @@ const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLangua
     <div>
       <div className="mb-4">
         <button
-          className="bg-primary hover:bg-teal-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
+          className="bg-primary text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
           onClick={() => {
             const newMacro = {
               id: Date.now(),
@@ -126,8 +127,8 @@ const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLangua
               tags: [],
               isNew: true,
             };
-            setMacros([...draftMacros, newMacro]);
-            setDraftMacros([...draftMacros, newMacro]);
+            setMacros([...existingMacros, newMacro]);
+            setDraftMacros([...existingMacros, newMacro]);
             setSelectedMacroId(newMacro.id);
           }}
         >
@@ -142,7 +143,7 @@ const MacroEditorSettings = ({ existingMacros, setMacros, onCancel, globalLangua
             {draftMacros.map((macro) => (
               <li
                 key={macro.id}
-                className={`py-3 px-4 rounded cursor-pointer hover:bg-gray-700 transition duration-300 mb-2 shadow-sm ${selectedMacroId === macro.id ? 'bg-gray-800' : ''} ${macro.isNew ? 'border-2 border-primary' : ''}`}
+                className={`py-3 px-4 rounded cursor-pointer transition duration-300 mb-2 shadow-sm ${selectedMacroId === macro.id ? 'bg-gray-800' : ''} ${macro.isNew ? 'border-2 border-primary' : ''}`}
                 onClick={() => setSelectedMacroId(macro.id)}
               >
                 <div className="font-bold">{macro.title || 'New Macro'}</div>

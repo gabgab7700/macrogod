@@ -50,10 +50,10 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
   };
 
   return (
-    <div className="w-full md:w-2/3 pl-4 text-neutral">
-      <h2 className="text-xl font-semibold mb-3">Macros</h2>
+    <div className="w-full md:w-2/3 pl-4 text-textPrimary">
+      <h2 className="text-xl font-semibold mb-3 text-shadow">Macros</h2>
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Title:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Title:</label>
         <input
           type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4 bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
@@ -62,7 +62,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
         />
       </div>
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Content:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Content:</label>
         <textarea
           type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4 bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
@@ -72,7 +72,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
         />
       </div>
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Description:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Description:</label>
         <input
           type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4 bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
@@ -82,7 +82,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
       </div>
 
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Language:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Language:</label>
         <select
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4 bg-neutral border-gray-300 focus:ring-primary focus:border-primary text-dark"
           value={language}
@@ -94,7 +94,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
       </div>
 
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Type:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Type:</label>
         <div className="flex items-center">
           <input
             type="checkbox"
@@ -104,7 +104,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
             checked={type.includes('Email')}
             onChange={handleTypeChange}
           />
-          <label htmlFor="email" className="text-sm text-neutral">Email</label>
+          <label htmlFor="email" className="text-sm text-textSecondary">Email</label>
 
           <input
             type="checkbox"
@@ -114,12 +114,12 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
             checked={type.includes('Chat')}
             onChange={handleTypeChange}
           />
-          <label htmlFor="chat" className="text-sm text-neutral">Chat</label>
+          <label htmlFor="chat" className="text-sm text-textSecondary">Chat</label>
         </div>
       </div>
 
       <div>
-        <label className="block text-neutral text-sm font-bold mb-2">Tags:</label>
+        <label className="block text-textSecondary text-sm font-bold mb-2">Tags:</label>
         <div className="flex flex-wrap">
           {tags.map(tag => (
             <div key={tag.id} className="mr-2 mb-2">
@@ -131,7 +131,7 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
                 checked={selectedTags.includes(tag.id)}
                 onChange={handleTagChange}
               />
-              <label htmlFor={`tag-${tag.id}`} className="text-sm text-neutral">{tag.name}</label>
+              <label htmlFor={`tag-${tag.id}`} className="text-sm text-textSecondary">{tag.name}</label>
             </div>
           ))}
         </div>
@@ -139,19 +139,19 @@ const MacroEditor = ({ macro, onUpdateMacro, onDeleteMacro, onCancel, tags }) =>
 
       <div className="flex justify-end">
         <button
-          className="bg-primary hover:bg-teal-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
+          className="bg-primary text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
           onClick={handleSave}
         >
           Save
         </button>
         <button
-          className="bg-red-500 hover:bg-red-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
+          className="bg-red-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
           onClick={() => onDeleteMacro(macro.id)}
         >
           Delete
         </button>
         <button
-          className="bg-dark hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
+          className="bg-dark text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
           onClick={onCancel}
         >
           Back

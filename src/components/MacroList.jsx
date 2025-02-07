@@ -16,13 +16,13 @@ const MacroList = ({ macros, onSelectMacro, selectedMacroId, tags }) => {
   };
 
   return (
-    <div className="w-full md:w-1/3 pr-4 text-neutral">
+    <div className="w-full md:w-1/3 pr-4 text-textPrimary">
       <h2 className="text-xl font-semibold mb-3">Macro List</h2>
       <ul>
         {macros.map(macro => (
           <li
             key={macro.id}
-            className={`py-3 px-4 rounded cursor-pointer hover:bg-gray-700 transition duration-300 mb-2 shadow-sm ${selectedMacroId === macro.id ? 'bg-gray-800' : ''}`}
+            className={`py-3 px-4 rounded cursor-pointer hover:bg-gray-200 transition duration-300 mb-2 shadow-sm ${selectedMacroId === macro.id ? 'bg-gray-300' : ''}`}
             onClick={() => onSelectMacro(macro)}
           >
             <div className="font-bold">{getIcon(macro)}{macro.title}</div>

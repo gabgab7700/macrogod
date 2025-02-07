@@ -33,7 +33,7 @@ const TagsPage = ({ tags, setTags, onAddTag, onUpdateTag, onDeleteTag }) => {
   };
 
   return (
-    <div className="p-4 text-neutral">
+    <div className="p-4 text-textPrimary">
       <h3 className="text-lg font-semibold mb-2">Manage Tags</h3>
 
       <div className="mb-4">
@@ -45,7 +45,7 @@ const TagsPage = ({ tags, setTags, onAddTag, onUpdateTag, onDeleteTag }) => {
           onChange={(e) => setNewTagName(e.target.value)}
         />
         <button
-          className="bg-primary hover:bg-teal-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
+          className="bg-primary text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
           onClick={handleAddTag}
         >
           Add Tag
@@ -64,13 +64,13 @@ const TagsPage = ({ tags, setTags, onAddTag, onUpdateTag, onDeleteTag }) => {
                   onChange={(e) => setEditingTagName(e.target.value)}
                 />
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 ml-2"
+                  className="bg-blue-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 ml-2"
                   onClick={handleUpdateTag}
                 >
                   Save
                 </button>
                 <button
-                  className="bg-gray-500 hover:bg-gray-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 ml-2"
+                  className="bg-gray-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 ml-2"
                   onClick={() => setEditingTagId(null)}
                 >
                   Cancel
@@ -81,7 +81,7 @@ const TagsPage = ({ tags, setTags, onAddTag, onUpdateTag, onDeleteTag }) => {
                 <span>{tag.name}</span>
                 <div>
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
+                    className="bg-blue-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300 mr-2"
                     onClick={() => {
                       setEditingTagId(tag.id);
                       setEditingTagName(tag.name);
@@ -90,7 +90,7 @@ const TagsPage = ({ tags, setTags, onAddTag, onUpdateTag, onDeleteTag }) => {
                     Edit
                   </button>
                   <button
-                    className="bg-red-500 hover:bg-red-700 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
+                    className="bg-red-500 text-neutral font-bold py-2 px-4 rounded shadow-md transition duration-300"
                     onClick={() => handleDeleteTag(tag.id)}
                   >
                     Delete
