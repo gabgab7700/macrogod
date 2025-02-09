@@ -1,0 +1,4 @@
+<boltAction type="file" filePath="fonts/Roboto-Medium.ttf" />
+  <boltAction type="file" filePath="fonts/Roboto-Italic.ttf" />
+  <boltAction type="file" filePath="fonts/Roboto-MediumItalic.ttf" />
+  <boltAction type="shell">mkdir fonts && curl -o fonts/Roboto-Regular.ttf https://raw.githubusercontent.com/google/fonts/master/apache/roboto/Roboto-Regular.ttf && curl -o fonts/Roboto-Medium.ttf https://raw.githubusercontent.com/google/fonts/master/apache/roboto/Roboto-Medium.ttf && curl -o fonts/Roboto-Italic.ttf https://raw.githubusercontent.com/google/fonts/master/apache/roboto/Roboto-Italic.ttf && curl -o fonts/Roboto-MediumItalic.ttf https://raw.githubusercontent.com/google/fonts/master/apache/roboto/Roboto-MediumItalic.ttf
